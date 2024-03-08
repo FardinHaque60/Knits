@@ -1,28 +1,23 @@
 // Use DBML to define your database structure
 // Docs: https://dbml.dbdiagram.io/docs
 
-Table Users {
-  User_Id integer
-  followed_user_id integer
-  created_at timestamp 
-}
-
 Table users {
-  id integer [primary key]
+  Userid integer [primary key]
   username varchar
   role varchar
   created_at timestamp
 }
 
 Table posts {
-  id integer [primary key]
+  Postid integer [primary key]
   title varchar
   body text [note: 'Content of the post']
   user_id integer
-  status varchar
-  created_at timestamp
+  timestamp timestamp
 }
 
-Ref: posts.user_id > users.id // many-to-one
+Table comments {
+  commentID integer [primary key]
+}
 
-
+Ref: posts.user_id > users.Userid // many-to-one
