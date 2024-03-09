@@ -15,6 +15,7 @@ Table users {
   email varchar
   phoneNumber varchar
   created_at timestamp
+  calendarID [foreign key]
 }
 Table messages {
   messageID integer [primary key]
@@ -44,6 +45,26 @@ Table comments {
   postID integer
 }
 
+Table reviews {
+  reviewID integer [primary key]
+  userID integer [foreign key]
+  locationID integer [foreign key]
+}
+
+Table locations {
+  locationID integer [primary key]
+  reviewID [foreign key]
+  name varchar
+  address varchar
+}
+
+Table calendar {
+  calendarID integer [primary key]
+  userID integer [foreign key]
+  calendars varchar
+  blocks varchar
+}
+
 Ref: posts.user_id > users.id // many-to-one
 
 Ref: messages.userID > users.id
@@ -55,3 +76,13 @@ Ref: users.id < follows.following_user_id
 Ref: comments.postID > posts.id
 
 Ref: users.id < follows.followed_user_id
+
+Ref: reviews.userID > users.ID
+
+Ref: reviews.locationID > locations.locationID
+
+Ref: locations.reviewID > reviews.reviewsID
+
+Ref: users.calendarID > calendar.calendarID
+
+Ref: calendar.userID > users.ID
