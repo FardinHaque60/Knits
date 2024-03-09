@@ -1,88 +1,133 @@
 // Use DBML to define your database structure
 // Docs: https://dbml.dbdiagram.io/docs
 
-Table follows {
-  following_user_id integer
-  followed_user_id integer
-  created_at timestamp 
-}
-
-Table users {
-  id integer [primary key]
-  username varchar
+Table user {
+  userID varchar [primary key]
   password varchar
   role varchar
   email varchar
-  phoneNumber varchar
-  created_at timestamp
-  calendarID [foreign key]
+  phoneNumber varchar(10)
+  bio text
+  location varchar
+  calendar integer
 }
-Table messages {
+
+Table connections {
+  followed_by varchar
+  follows varchar
+  connection_since timestamp 
+  calendar_access boolean
+}
+
+Table message {
   messageID integer [primary key]
   userID integer 
   content text
   timestamp timestamp
+  chat integer
 }
 
-Table cars {
+Table chat {
+  chatID integer [primary key]
+  title varchar
+}
+
+Table chats_in {
+  user varchar 
+  chat integer
+}
+
+Table car {
   carID integer [primary key]
-  driverID integer 
-  passengers text
+  driverID varchar
   seatsAvailable integer
 }
 
-Table posts {
-  id integer [primary key]
+Table passengers {
+  passenger varchar
+  car integer
+}
+
+Table post {
+  postID integer [primary key]
   title varchar
   body text [note: 'Content of the post']
-  user_id integer
-  status varchar
+  author varchar
+  likes integer [note: "likes are anonymous, user is not connected to likes"]
   created_at timestamp
 }
 
-Table comments {
+Table comment {
   commentID integer [primary key]
   postID integer
 }
 
-Table reviews {
-  reviewID integer [primary key]
-  userID integer [foreign key]
-  locationID integer [foreign key]
+Table calendar {
+  calendarID integer [primary key]
+  title varchar
 }
 
-Table locations {
+Table access_to {
+  user varchar
+  calendar integer
+}
+
+Table block {
+  blockID integer [primary key]
+  name varchar
+  calendar integer
+  time varchar  [note: "represents the start and end time for a block"]
+}
+
+Table location {
   locationID integer [primary key]
-  reviewID [foreign key]
   name varchar
   address varchar
 }
 
-Table calendar {
-  calendarID integer [primary key]
-  userID integer [foreign key]
-  calendars varchar
-  blocks varchar
+Table review {
+  reviewID integer [primary key]
+  author varchar 
+  location integer 
 }
 
-Ref: posts.user_id > users.id // many-to-one
+//user references
+Ref: user.calendar - calendar.calendarID
 
-Ref: messages.userID > users.id
+//follow references
+Ref: connections.followed_by <> user.userID 
+Ref: connections.follows <> user.userID
 
-Ref: users.id > cars.carID
+//messages references
+Ref: message.userID > user.userID
+Ref: message.chat > chat.chatID
 
-Ref: users.id < follows.following_user_id
+//car references
+Ref: car.driverID > user.userID
 
-Ref: comments.postID > posts.id
+//post references
+Ref: post.author > user.userID
 
-Ref: users.id < follows.followed_user_id
+//comment references
+Ref: comment.postID > post.postID
 
-Ref: reviews.userID > users.ID
+//chats_in referenences
+Ref: chats_in.user <> user.userID
+Ref: chats_in.chat <> chat.chatID
 
-Ref: reviews.locationID > locations.locationID
+//passengers references
+Ref: passengers.passenger <> user.userID
+Ref: passengers.car <> car.carID
 
-Ref: locations.reviewID > reviews.reviewsID
+//reviews references
+Ref: review.author > user.userID
+Ref: review.location > location.locationID
 
-Ref: users.calendarID > calendar.calendarID
+//calendar references
 
-Ref: calendar.userID > users.ID
+//access_to references
+Ref: access_to.user <> user.userID
+Ref: access_to.calendar <> calendar.calendarID
+
+//blocks references
+Ref: block.calendar > calendar.calendarID
