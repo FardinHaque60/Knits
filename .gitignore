@@ -1,1 +1,8 @@
+# MacOS
 /.metadata/
+
+# IDE
+/.vscode/
+
+# react dependencies
+node_modules
