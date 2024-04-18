@@ -18,7 +18,7 @@ import com.example.backend.entity.User;
 // --------- rest api set up for React Native fetch ------ 
 @RestController
 @RequestMapping("/api")
-public class UserController {
+public class HomeController {
     @Autowired
     private UserRepository userRepository;
 
