@@ -13,10 +13,10 @@ const Stack = createStackNavigator();
 const AppNavigator = () => {
   return (
     <Stack.Navigator initialRouteName='Login'>
-      <Stack.Screen name="Login" component={Login} options={{ headerLeft: null }}/>
+      <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
       <Stack.Screen name="Feed" component={Feed} options={{ headerLeft: null }}/>
       <Stack.Screen name="Hangouts" component={Hangouts} options={{ headerLeft: null}}/>
-      <Stack.Screen name="Create-Account" component={CreateAccount} options={{headerLeft: null}}/>
+      <Stack.Screen name="Create-Account" component={CreateAccount} options={{headerShown: false}}/>
       <Stack.Screen name="Profile" component={Profile} options={{headerLeft: null}}/>
     </Stack.Navigator>
   );
