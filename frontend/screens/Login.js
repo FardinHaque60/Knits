@@ -1,5 +1,3 @@
-// screens/HomeScreen.js
-
 import React, { useEffect, useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import axios from 'axios';
@@ -19,10 +17,11 @@ function Login({ navigation }) {
 
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text>Login</Text>
+      <Text>Enter Username</Text>
+      <Text>Enter Password</Text>
       <Button
-        title="Go Home"
-        onPress={() => navigation.navigate('Home')}
+        title="Login"
+        onPress={() => navigation.navigate('Feed')}
         style={styles.button}
       />
     </View>
