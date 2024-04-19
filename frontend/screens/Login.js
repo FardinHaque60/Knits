@@ -8,7 +8,13 @@ function Login({ navigation }) {
   const [loginForm, setForm] = useState({
     'email': '',
     'password': '',
-  })
+  });
+
+  const handleChange = (key, value) => {
+    setForm({...loginForm, [key]: value});
+  }
+
+  const [credentials, setCredentials] = useState(true); //for invalid credentials message
 
   const handleLogin = () => {
     axios.post('http://localhost:8080/api/login', loginForm)
@@ -18,6 +24,8 @@ function Login({ navigation }) {
       })
       .catch(error => {
         console.log(error.response.data);
+        if (error.response.data === "Invalid Credentials")
+          setCredentials(false);
       });
   } 
 
@@ -32,15 +40,22 @@ function Login({ navigation }) {
           style={styles.input}
           keyboardType="email-address"
           placeholder='Email'
+          textContentType='emailAddress'
+          value={loginForm.email}
           autoCapitalize="none"
+          onChangeText={(value) => handleChange('email', value)}
         />
         <TextInput
           style={styles.input}
           placeholder='Password'
+          textContentType='password'
+          value={loginForm.password}
+          onChangeText={(value) => handleChange('password', value)}
           secureTextEntry
         />
+        {!credentials ? <Text style={styles.error}> Invalid Credentials </Text> : null }
         <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>  
-          <Text style={styles.buttonText}>Login</Text>
+          <Text style={styles.buttonText} onPress={handleLogin}>Login</Text>
         </TouchableOpacity>
         <View style={styles.bottomContainer}>
           <View style={styles.horizontalLine}></View> 

@@ -57,6 +57,13 @@ const styles = StyleSheet.create({
       fontSize: 16,
       color: '#d7dede', // Color of the "Or" text
     },
+    error: {
+      backgroundColor: '#f8d7da', 
+      color: '#721c24',
+      padding: 10,
+      marginBottom: 10,
+      borderRadius: 5,
+    }
   });
 
 export default styles;
