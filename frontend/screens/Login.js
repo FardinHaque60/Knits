@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput, Button } from 'react-native';
 import axios from 'axios';
-import styles from "../styles/LoginStyles";
+import styles from "../styles/EntranceStyles";
 import { LinearGradient } from 'expo-linear-gradient';
 
 function Login({ navigation }) {
