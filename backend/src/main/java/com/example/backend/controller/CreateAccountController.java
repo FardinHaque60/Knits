@@ -48,7 +48,7 @@ public class CreateAccountController {
         User user = new User(fields[0], fields[1], fields[2], fields[3]);
         try {
             userRepository.save(user);
-            LoginController.setCurrentUser(user);
+            Session.setCurrentUser(user);
             return ResponseEntity.ok("Account Successfully Made");
         }
         catch (Exception e) {
