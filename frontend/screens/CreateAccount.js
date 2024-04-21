@@ -47,7 +47,7 @@ function CreateAccount({ navigation }) {
       style={styles.container}
     > 
       <View style={styles.overlay}>
-        <Image source={require('../assets/KnitsLogo.png')} style={styles.logo} />
+        <Image source={require('../assets/KnitsText.png')} style={styles.logo} />
         <TextInput
           style={styles.input}
           value={accountForm.firstName}
