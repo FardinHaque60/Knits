@@ -43,8 +43,6 @@ public class LoginController {
         }
     }
 
-
-
     static void setCurrentUser(User u) {
         currentUser = u;
     }
