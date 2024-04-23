@@ -16,9 +16,7 @@ public class User {
   private String email;
   private String password;
 
-  public User() {
-    
-  }
+  public User() {}
 
   public User(String f, String l, String e, String p) {
     firstName = f; lastName = l;
