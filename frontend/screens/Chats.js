@@ -1,1 +1,11 @@
-// look to rename to "cars", "events", or something along the lines
+import React from 'react';
+
+function Chats() {
+    return (
+        <div>
+            <Text>Chats</Text>
+        </div>
+    );
+}
+
+export default Chats;
