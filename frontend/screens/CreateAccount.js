@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, TouchableOpacity, Image, TextInput, Button } from 'react-native';
 import axios from 'axios';
-import styles from "../styles/CreateAccountStyles";
+import styles from "../styles/EntranceStyles";
 import { LinearGradient } from 'expo-linear-gradient';
 
 function CreateAccount({ navigation }) {
@@ -47,7 +47,7 @@ function CreateAccount({ navigation }) {
       style={styles.container}
     > 
       <View style={styles.overlay}>
-        <Image source={require('../assets/KnitsLogo.png')} style={styles.logo} />
+        <Image source={require('../assets/KnitsText.png')} style={styles.logo} />
         <TextInput
           style={styles.input}
           value={accountForm.firstName}
