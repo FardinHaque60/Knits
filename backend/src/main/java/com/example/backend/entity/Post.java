@@ -20,12 +20,12 @@ public class Post {
     private User author; //foreign key to user who created post
 
     private String body;
-    private LocalDate date;
+    private String dateTime;
 
     public Post() {}
 
-    public Post(User u, String b, LocalDate d) {
-        author = u; body = b; date = d;
+    public Post(User u, String b, String d) {
+        author = u; body = b; dateTime = d;
     }
 
      public User getAuthor() {
@@ -44,11 +44,11 @@ public class Post {
         this.body = body;
     }
     
-    public LocalDate getDate() {
-        return date;
+    public String getDateTime() {
+        return dateTime;
     }
 
-    public void setDate(LocalDate date) {
-        this.date = date;
+    public void setDate(String date) {
+        this.dateTime = date;
     }
 }

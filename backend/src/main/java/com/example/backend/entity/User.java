@@ -15,6 +15,7 @@ public class User {
   private String lastName;
   private String email;
   private String password;
+  private String biography;
 
   public User() {}
 
@@ -61,6 +62,14 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getBiography() {
+    return biography;
+  }
+
+  public void setBiography(String biography) {
+    this.biography = biography;
   }
 
   @Override
