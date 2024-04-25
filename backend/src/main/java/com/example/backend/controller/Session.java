@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.backend.entity.Post;
 import com.example.backend.entity.User;
+import com.example.backend.repository.PostRepository;
 
 @RestController
 @RequestMapping("/api")
 class Session {
     private static User currentUser;
+
+    private PostRepository postRepository;
 
     static void setCurrentUser(User u) {
         currentUser = u;
@@ -49,11 +52,24 @@ class Session {
         return ResponseEntity.ok().body(feedPosts);
     }
 
-    //TODO: create method for getting posts that user created
     @GetMapping("/get-user-posts")
-    public ResponseEntity<List<Post>> getUserPosts() {
-        List<Post> userPosts = new ArrayList<>();
+    public ResponseEntity<List<Map<String, String>>> getPosts() throws Exception {
+        List<Map<String, String>> postObjs = new ArrayList<>();
 
-        return ResponseEntity.ok().body(userPosts);
+        try {
+            List<Post> myPosts = postRepository.findByAuthor(currentUser);
+            Map<String, String> postObj;
+            for (Post p: myPosts) {
+                postObj = new HashMap<>();
+                postObj.put("author", currentUser.getFirstName() + " " + currentUser.getLastName());
+                postObj.put("body", p.getBody());
+                postObj.put("date", p.getDateTime());
+            }
+        }
+        catch (Exception e) {
+            throw new Exception(e.toString());
+        }
+
+        return ResponseEntity.ok().body(postObjs);
     }
 }
