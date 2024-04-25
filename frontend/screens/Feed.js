@@ -39,14 +39,14 @@ function Feed({navigation}) {
       .catch(error => {
         console.log(error.response.data);
       });
-    {/*
+    /*
     axios.get('http://localhost:8080/api/get-posts')
       .then(response => {
         console.log(response.data);
       })
       .catch(error => {
         console.log(error);
-      }); */}
+      }); */
   }, []);
 
   const Post = ({author, body, date}) => {
@@ -59,29 +59,25 @@ function Feed({navigation}) {
     );
   };
 
-  const Recommendations = ({picture, firstName, lastName}) => {
+  const Recommendations = ({id, picture, firstName, lastName}) => {
     return (
-      <View style={styles.reccObj}>
+      <TouchableOpacity style={styles.reccObj} onPress={() => navigation.navigate("View Profile", {id: id})}> 
         <View style={styles.picContainer}>
           <Image source={picture} style={styles.reccPic} /> 
         </View>
         <View style={styles.reccName}>
           <Text> {firstName} {lastName} </Text> 
         </View>
-      </View>
+      </TouchableOpacity>
     );
   };
-
-  const createPost = () => {
-    navigation.navigate('Create Post');
-  }
 
   return (
     <Navigation navigation={navigation} >
       <View style={styles.container}>
         <View style={styles.headerRow}> 
           <Text style={styles.header}> Welcome, {userInfo.firstName} {userInfo.lastName} </Text>
-          <TouchableOpacity style={styles.postButton} onPress={createPost}>
+          <TouchableOpacity style={styles.postButton} onPress={() => navigation.navigate('Create Post')}>
             <Text style={styles.buttonText}>+ Post</Text>
           </TouchableOpacity>
         </View>
@@ -89,10 +85,10 @@ function Feed({navigation}) {
           <FlatList
             data={recommendations}
             keyExtractor={(item) => item.id.toString()}
-            horizontal={true} 
+            horizontal={true}
             contentContainerStyle={styles.hScrollViewContent}
             renderItem={({ item }) => (
-              <Recommendations picture={item.profilePicture} firstName={item.firstName} lastName={item.lastName} />
+              <Recommendations id={item.id} picture={item.profilePicture} firstName={item.firstName} lastName={item.lastName} />
             )}
           />
         <FlatList

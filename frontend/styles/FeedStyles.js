@@ -5,10 +5,7 @@ const styles = StyleSheet.create({
     //header styles
     container: {
         flex: 1,
-    },
-    scrollView: {
-      paddingLeft: 7,
-      width: '98%',
+        width: '96%',
     },
     header: {
       marginTop: 10,
@@ -47,7 +44,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       marginBottom: 15,
       paddingVertical: 15,
-      width: '98%',
     },
     reccObj: {
       borderWidth: 0, 

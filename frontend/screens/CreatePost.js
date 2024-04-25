@@ -5,13 +5,15 @@ import axios from 'axios';
 
 function CreatePost({navigation}) {
     const [postText, setPostText] = useState('');
+    const [postCreate, setPostCreate] = useState(false);
 
     const handlePost = () => {
         console.log('Posted:', postText);
         axios.post("http://localhost:8080/api/create-post", postText)
             .then(response => {
                 console.log(response.data);
-                navigation.navigate("Feed")
+                setPostCreate(true);
+                setPostText("");
             })
             .catch(error => {
                 console.log(error.response.data)
@@ -27,6 +29,8 @@ function CreatePost({navigation}) {
                 value={postText}
                 onChangeText={setPostText}
             />
+            {postCreate ? <Text style={styles.postCreated}> Succesfully Created Post! </Text> : null }
+            {/* add handling for message going away after some time */}
             <Button
                 title="Post"
                 onPress={handlePost}
