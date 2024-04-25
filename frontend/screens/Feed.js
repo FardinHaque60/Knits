@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from 'react';
-import { View, Text, FlatList, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import styles from "../styles/FeedStyles";
-import Navigation from "./Navigation";
+import Navigation from "../components/Navigation";
 import axios from 'axios';
 
 function Feed({navigation}) {
@@ -79,31 +79,30 @@ function Feed({navigation}) {
   return (
     <Navigation navigation={navigation} >
       <View style={styles.container}>
-        <ScrollView contentContainerStyle={styles.scrollView}> 
-          <View style={styles.headerRow}> 
-            <Text style={styles.header}> Welcome, {userInfo.firstName} {userInfo.lastName} </Text>
-            <TouchableOpacity style={styles.postButton} onPress={createPost}>
-              <Text style={styles.postButtonText}>+ Post</Text>
-            </TouchableOpacity>
-          </View>
-          <Text style={styles.reccText}> People you may know: </Text>
-            <FlatList
-              data={recommendations}
-              keyExtractor={(item) => item.id.toString()}
-              horizontal={true} 
-              contentContainerStyle={styles.hScrollViewContent}
-              renderItem={({ item }) => (
-                <Recommendations picture={item.profilePicture} firstName={item.firstName} lastName={item.lastName} />
-              )}
-            />
+        <View style={styles.headerRow}> 
+          <Text style={styles.header}> Welcome, {userInfo.firstName} {userInfo.lastName} </Text>
+          <TouchableOpacity style={styles.postButton} onPress={createPost}>
+            <Text style={styles.buttonText}>+ Post</Text>
+          </TouchableOpacity>
+        </View>
+        <Text style={styles.reccText}> People you may know: </Text>
           <FlatList
-            data={posts}
-            keyExtractor={(item) => item.id}
+            data={recommendations}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal={true} 
+            contentContainerStyle={styles.hScrollViewContent}
             renderItem={({ item }) => (
-              <Post id={item.id} author={item.author} body={item.body} date={item.date} />
+              <Recommendations picture={item.profilePicture} firstName={item.firstName} lastName={item.lastName} />
             )}
           />
-        </ScrollView>
+        <FlatList
+          data={posts}
+          keyExtractor={(item) => item.id.toString()}
+          contentContainerStyle = {styles.scrollView}
+          renderItem={({ item }) => (
+            <Post author={item.author} body={item.body} date={item.date} />
+          )}
+        />
       </View>
     </Navigation>
   );

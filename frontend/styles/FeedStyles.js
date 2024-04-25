@@ -30,15 +30,24 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       marginTop: 10,
     },
-    postButtonText: {
+    buttonText: {
       color: '#fff', // Button text color
       fontWeight: 'bold',
+    },
+    logoutButton: {
+      marginRight: 20,
+    },
+    logoutIcon: {
+      width: 25,
+      height: 25,
     },
 
     //recommendation bar styles
     hScrollViewContent: {
       flexDirection: 'row',
       marginBottom: 15,
+      paddingVertical: 15,
+      width: '98%',
     },
     reccObj: {
       borderWidth: 0, 

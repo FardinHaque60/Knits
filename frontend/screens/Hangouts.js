@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, Button } from 'react-native';
 import styles from "../styles/FeedStyles";
-import Navigation from "./Navigation"
+import Navigation from "../components/Navigation"
 
 function Hangouts({navigation}) {
   return (

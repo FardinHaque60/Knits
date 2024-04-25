@@ -28,6 +28,8 @@ public class LoginController {
             Session.setCurrentUser(user);
             return ResponseEntity.ok("Login Successful");
         }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
+        else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
+        }
     }
 }
