@@ -7,6 +7,7 @@ import Login from '../screens/Login';
 import CreateAccount from "../screens/CreateAccount";
 import Hangouts from "../screens/Hangouts";
 import Profile from "../screens/Profile";
+import CreatePost from '../screens/CreatePost';
 
 const Stack = createStackNavigator();
 
@@ -18,6 +19,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Hangouts" component={Hangouts} options={{ headerLeft: null}}/>
       <Stack.Screen name="Create-Account" component={CreateAccount} options={{headerShown: false}}/>
       <Stack.Screen name="Profile" component={Profile} options={{headerLeft: null}}/>
+      <Stack.Screen name="Create Post" component={CreatePost} />
     </Stack.Navigator>
   );
 };

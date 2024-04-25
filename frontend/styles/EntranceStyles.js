@@ -13,9 +13,9 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     logo: {
-      width: 200,
-      height: 150,
-      marginBottom: 50,
+      width: 250,
+      height: 100,
+      marginBottom: 35,
     },
     input: {
       width: '80%',

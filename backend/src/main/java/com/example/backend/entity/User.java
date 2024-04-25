@@ -15,10 +15,9 @@ public class User {
   private String lastName;
   private String email;
   private String password;
+  private String biography;
 
-  public User() {
-    
-  }
+  public User() {}
 
   public User(String f, String l, String e, String p) {
     firstName = f; lastName = l;
@@ -63,5 +62,18 @@ public class User {
 
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  public String getBiography() {
+    return biography;
+  }
+
+  public void setBiography(String biography) {
+    this.biography = biography;
+  }
+
+  @Override
+  public String toString() {
+    return firstName + " " + lastName + " - " + email;
   }
 }

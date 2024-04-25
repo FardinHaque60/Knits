@@ -20,15 +20,13 @@ public class LoginController {
     
     @Autowired
     private UserRepository userRepository;
-    private static User currentUser;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody Map<String, String> loginData) {
         User user = userRepository.findByEmail(loginData.get("email"));
 
         if (user != null && user.getPassword().equals(loginData.get("password"))) {
-            System.out.println(user.getFirstName() + " " + user.getLastName());
-            currentUser = user;
+            Session.setCurrentUser(user);
             return ResponseEntity.ok("Login Successful");
         }
         return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
@@ -47,5 +45,4 @@ public class LoginController {
         currentUser = u;
     }
 
-    
 }
