@@ -8,6 +8,7 @@ import CreateAccount from "../screens/CreateAccount";
 import Hangouts from "../screens/Hangouts";
 import Profile from "../screens/Profile";
 import CreatePost from '../screens/CreatePost';
+import LogoutButton from '../components/LogoutButton';
 
 const Stack = createStackNavigator();
 
@@ -15,7 +16,9 @@ const AppNavigator = () => {
   return (
     <Stack.Navigator initialRouteName='Login'>
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
-      <Stack.Screen name="Feed" component={Feed} options={{ headerLeft: null }}/>
+      <Stack.Screen name="Feed" component={Feed} options={ ({ navigation }) => ({ 
+        headerLeft: null,
+        headerRight: () => (<LogoutButton navigation={navigation} />) })}/>
       <Stack.Screen name="Hangouts" component={Hangouts} options={{ headerLeft: null}}/>
       <Stack.Screen name="Create-Account" component={CreateAccount} options={{headerShown: false}}/>
       <Stack.Screen name="Profile" component={Profile} options={{headerLeft: null}}/>

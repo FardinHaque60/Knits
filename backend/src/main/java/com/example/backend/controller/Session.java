@@ -63,7 +63,8 @@ class Session {
                 postObj = new HashMap<>();
                 postObj.put("author", currentUser.getFirstName() + " " + currentUser.getLastName());
                 postObj.put("body", p.getBody());
-                postObj.put("date", p.getDateTime());
+                postObj.put("date", p.getDate());
+                postObj.put("time", p.getTime());
             }
         }
         catch (Exception e) {
