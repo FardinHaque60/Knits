@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
     reccPic: {
       width: 50,
       height: 50,
+      borderRadius: 25,
     },
     reccText: {
       marginBottom: 5,

@@ -51,6 +51,10 @@ function ProfileScreen({ navigation }) {
 
     //import Posts as component
 
+    const handleSearch = () => {
+        navigation.navigate("Search");
+    }
+
     return (
         <Navigation navigation={navigation}>
             <View style={styles.container}>

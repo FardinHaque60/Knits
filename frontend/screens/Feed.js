@@ -15,12 +15,12 @@ function Feed({navigation}) {
   ])
 
   const [recommendations, setRecommendations] = useState([
-    {'id': 1, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
-    {'id': 2, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
-    {'id': 3, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
-    {'id': 5, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
-    {'id': 4, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
-    {'id': 6, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Bob', 'lastName': 'Jones'},
+    {'id': 1, 'profilePicture': require('../assets/profile_pictures/Dlo.png'), 'firstName': 'Dangelo', 'lastName': 'Russell'},
+    {'id': 2, 'profilePicture': require('../assets/profile_pictures/Austin_Reaves.png'), 'firstName': 'Austin', 'lastName': 'Reaves'},
+    {'id': 3, 'profilePicture': require('../assets/profile_pictures/Jordan_Poole.png'), 'firstName': 'Jordan', 'lastName': 'Poole'},
+    {'id': 5, 'profilePicture': require('../assets/profile_pictures/Nas_Reed.png'), 'firstName': 'Nas', 'lastName': 'Reed'},
+    {'id': 4, 'profilePicture': require('../assets/profile_pictures/Gary_Payton.png'), 'firstName': 'Gary', 'lastName': 'Payton'},
+    {'id': 6, 'profilePicture': require('../assets/KnitsLogo.png'), 'firstName': 'Knits', 'lastName': ''},
   ]);
 
   const [userInfo, setUserInfo] = useState({
