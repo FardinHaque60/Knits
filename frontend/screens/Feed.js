@@ -98,9 +98,9 @@ function Feed({navigation}) {
             />
           <FlatList
             data={posts}
-            keyExtractor={(item) => item.id.toString()}
+            keyExtractor={(item) => item.id}
             renderItem={({ item }) => (
-              <Post author={item.author} body={item.body} date={item.date} />
+              <Post id={item.id} author={item.author} body={item.body} date={item.date} />
             )}
           />
         </ScrollView>
