@@ -39,7 +39,7 @@ public class CreateAccountController {
         }
         
         //perform checks on form fields
-        if (fields[0] == "" || fields[2] == "" || fields[3] == "" || fields[4] == "") {
+        if (fields[0] == "" || fields[1] == "123" || fields[2] == "" || fields[3] == "" || fields[4] == "") {
             return ResponseEntity.badRequest().body("Invalid Fields");
         }
         if (!fields[3].equals(fields[4])) {
