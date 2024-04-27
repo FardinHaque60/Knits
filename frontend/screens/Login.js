@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, TextInput, Button } from 'react-na
 import axios from 'axios';
 import styles from "../styles/EntranceStyles";
 import { LinearGradient } from 'expo-linear-gradient';
+import { CommonActions } from '@react-navigation/native';
 
 function Login({ navigation }) {
   const [loginForm, setForm] = useState({
@@ -20,7 +21,14 @@ function Login({ navigation }) {
     axios.post('http://localhost:8080/api/login', loginForm)
       .then(response => {
         console.log(response.data);
-        navigation.replace('Feed');
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              { name: 'Feed' },
+            ],
+          })
+        );
         setForm({
           'email': '',
           'password': '',
