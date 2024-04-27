@@ -10,19 +10,19 @@ function Navigation({ navigation, children }) {
       <View style={styles.navigationBar}>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.navigate('Feed')}
+          onPress={() => navigation.replace('Feed')}
         >
           <Text style={styles.navIcon}> 🏠 </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.navigate('Hangouts')}
+          onPress={() => navigation.replace('Hangouts')}
         >
           <Text style={styles.navIcon}> 🚗 </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.navigate('Profile')}
+          onPress={() => navigation.replace('Profile')}
         >
           <Text style={styles.navIcon}> 👤 </Text>
         </TouchableOpacity>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect} from 'react';
+import { useFocusEffect, useIsFocused } from '@react-navigation/native';
 import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native';
 import styles from "../styles/FeedStyles";
 import Post from "../components/Post";
@@ -7,18 +8,9 @@ import axios from 'axios';
 import images from "../components/Images";
 
 function Feed({navigation}) {
-  const [posts, setPosts] = useState([
-    {'id': 4, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-    {'id': 5, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-    {'id': 6, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-    {'id': 7, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-    {'id': 8, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-    {'id': 9, 'author': 'Knits', 'body': 'Welcome to Knits', 'date': '2024-04-19', 'time': '...'},
-  ])
-
+  const [posts, setPosts] = useState([])
   const [recommendations, setRecommendations] = useState([]);
-
-  const [userInfo, setUserInfo] = useState({})
+  const [userInfo, setUserInfo] = useState({});
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/get-user-info', {params: {id: -1}})
@@ -37,19 +29,19 @@ function Feed({navigation}) {
       .catch(error => {
         console.log(error.response.data);
       });
-    /*
     axios.get('http://localhost:8080/api/get-feed-posts')
       .then(response => {
         console.log(response.data);
+        setPosts(response.data);
       })
       .catch(error => {
         console.log(error);
-      }); */
+      });
   }, []);
 
   const Recommendations = ({id, picture, firstName, lastName}) => {
     return (
-      <TouchableOpacity style={styles.reccObj} onPress={() => navigation.navigate("View Profile", id)}> 
+      <TouchableOpacity style={styles.reccObj} onPress={() => navigation.replace("View Profile", id)}> 
         <View style={styles.picContainer}>
           <Image source={images[picture]} style={styles.reccPic} /> 
         </View>
@@ -82,9 +74,9 @@ function Feed({navigation}) {
         <FlatList
           data={posts}
           keyExtractor={(item) => item.id}
-          contentContainerStyle = {styles.scrollView}
+          contentContainerStyle={styles.scrollView}
           renderItem={({ item }) => (
-            <Post author={item.author} body={item.body} date={item.date} time={item.time}/>
+            <Post id={item.id} author={item.author} body={item.body} date={item.date} time={item.time}/>
           )}
         />
       </View>

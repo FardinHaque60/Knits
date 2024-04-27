@@ -42,8 +42,6 @@ const styles = StyleSheet.create({
     //recommendation bar styles
     hScrollViewContent: {
       flexDirection: 'row',
-      marginBottom: 15,
-      paddingVertical: 15,
     },
     reccObj: {
       borderWidth: 0, 
@@ -72,6 +70,9 @@ const styles = StyleSheet.create({
     },
     reccName: {
       flexDirection: 'row',
+    },
+    scrollView: {
+      marginBottom: '100%'
     },
 
     //post list styles

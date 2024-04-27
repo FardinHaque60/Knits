@@ -22,7 +22,7 @@ function Search({navigation}) {
 
     const SearchResult = ({id, firstName, lastName, profilePicture}) => {
         return (
-            <TouchableOpacity style={styles.resultItem} onPress={() => navigation.navigate("View Profile", id)}>
+            <TouchableOpacity style={styles.resultItem} onPress={() => navigation.replace("View Profile", id)}>
                 <View style={styles.picContainer}> 
                     <Image source={images[profilePicture]} style={styles.profilePicture}/>
                 </View>

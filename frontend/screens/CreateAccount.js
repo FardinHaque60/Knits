@@ -24,7 +24,7 @@ function CreateAccount({ navigation }) {
     axios.post('http://localhost:8080/api/create-account', accountForm)
       .then(response => {
         console.log(response.data);
-        navigation.navigate('Feed');
+        navigation.replace('Feed');
       })
       .catch(error => {
         const msg = error.response.data;

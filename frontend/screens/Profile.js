@@ -7,6 +7,7 @@ import Post from "../components/Post";
 import styles from '../styles/ProfileStyles';
 import axios from 'axios';
 import images from "../components/Images";
+import UserStats from "../components/StatsRow";
 
 function ProfileScreen({ navigation }) {
     const [userData, setUserData] = useState({});
@@ -26,8 +27,7 @@ function ProfileScreen({ navigation }) {
             .catch(error => {
                 console.log(error.response.data);
             })
-        /*
-        axios.get('http://localhost:8080/api/get-user-stats', userData.id)
+        axios.get('http://localhost:8080/api/get-user-stats', {params: {id:  -1}})
             .then(response => {
                 console.log(response.data);
                 setUserStats(response.data);
@@ -35,7 +35,6 @@ function ProfileScreen({ navigation }) {
             .catch(error => {
                 console.log(error.response.data);
             })
-        */
         axios.get('http://localhost:8080/api/get-user-posts', {params: {id: -1}})
             .then(response => {
                 console.log(response.data);
@@ -66,20 +65,7 @@ function ProfileScreen({ navigation }) {
                 </View>
 
                 {/* Stats */}
-                <View style={styles.statsContainer}>
-                    <View style={styles.statBox}>
-                        <Text style={styles.statNumber}>{userStats.posts}</Text>
-                        <Text style={styles.statLabel}>posts</Text>
-                    </View>
-                    <View style={styles.statBox}>
-                        <Text style={styles.statNumber}>{userStats.followers}</Text>
-                        <Text style={styles.statLabel}>followers</Text>
-                    </View>
-                    <View style={styles.statBox}>
-                        <Text style={styles.statNumber}>{userStats.following}</Text>
-                        <Text style={styles.statLabel}>following</Text>
-                    </View>
-                </View>
+                <UserStats navigation={navigation} userStats={userStats} userInfo={userData}/>
 
                 {/* User handle and website */}
                 <View style={styles.handleContainer}>
