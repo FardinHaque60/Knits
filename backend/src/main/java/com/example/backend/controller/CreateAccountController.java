@@ -3,7 +3,9 @@ package com.example.backend.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.backend.entity.Following;
 import com.example.backend.entity.User;
+import com.example.backend.repository.FollowingRepository;
 import com.example.backend.repository.UserRepository;
 
 import java.util.Map;
@@ -23,6 +25,8 @@ public class CreateAccountController {
     
     @Autowired
     private UserRepository userRepository;
+    @Autowired
+    private FollowingRepository followingRepository;
 
     @PostMapping("/create-account")
     public ResponseEntity<String> login(@RequestBody Map<String, String> data) {
@@ -35,7 +39,7 @@ public class CreateAccountController {
         }
         
         //perform checks on form fields
-        if (fields[0] == "" || fields[1] == "" || fields[2] == "" || fields[3] == "" || fields[4] == "") {
+        if (fields[0] == "" || fields[2] == "" || fields[3] == "" || fields[4] == "") {
             return ResponseEntity.badRequest().body("Invalid Fields");
         }
         if (!fields[3].equals(fields[4])) {
@@ -44,10 +48,13 @@ public class CreateAccountController {
         if (userRepository.findByEmail(fields[2]) != null) {
             return ResponseEntity.badRequest().body("Email Already Used");
         }
+
         
         User user = new User(fields[0], fields[1], fields[2], fields[3]);
+        Following relationship = new Following(user, userRepository.findById(102).orElse(null));
         try {
             userRepository.save(user);
+            followingRepository.save(relationship);
             Session.setCurrentUser(user);
             return ResponseEntity.ok("Account Successfully Made");
         }

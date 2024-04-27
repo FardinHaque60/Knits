@@ -33,13 +33,4 @@ class Session {
     static User getCurrentUser() {
         return currentUser;
     }
-
-    //TODO: create method for getting posts in users feed
-    @GetMapping("/get-feed-posts")
-    public ResponseEntity<List<Map<String, String>>> getFeedPosts() {
-        List<Map<String, String>> feedPosts = new ArrayList<>();
-        Map<String, String> postObj;
-
-        return ResponseEntity.ok().body(feedPosts);
-    }
 }
