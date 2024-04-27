@@ -32,11 +32,12 @@ public class RecommendationsController {
     @GetMapping("/get-recommendations")
     public ResponseEntity<List<Map<String, String>>> getMethodName() {
         List<Map<String, String>> allUsers = new ArrayList<>();
+        Integer currentUserId = Session.getCurrentUser().getId();
         
         Map<String, String> userObj;
         Iterable<User> users = userRepository.findAll();
         for (User u: users) {
-            if (u.getId() == Session.getCurrentUser().getId())
+            if (u.getId().equals(currentUserId))
                 continue;
             userObj = new HashMap<>();
             userObj.put("id", u.getId() + "");
