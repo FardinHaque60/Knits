@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-evenly',
       alignItems: 'center',
       paddingHorizontal: 10,
+      marginTop: '2%',
   },
   avatarContainer: {
     borderRadius: 50,
@@ -30,9 +31,31 @@ const styles = StyleSheet.create({
       fontSize: 18,
       fontWeight: '500',
   },
-  notifications: {
-      fontSize: 16,
-      marginRight: 8,
+  followingButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 4,
+    paddingHorizontal: '5%',
+    borderRadius: 5,
+    marginTop: '15%',
+    alignItems: 'center',
+  },
+  unfollowButton: {
+    backgroundColor: '#007AFF',
+    paddingVertical: 4,
+    borderRadius: 5,
+    marginTop: '10%',
+    alignItems: 'center',
+  },
+  followedButton: {
+    backgroundColor: 'gray',
+    paddingVertical: 4,
+    paddingHorizontal: 5,
+    borderRadius: 5,
+    marginTop: '2%',
+    alignItems: 'center',
+  },
+  followText: {
+    color: 'white',
   },
   actionButton: {
       backgroundColor: '#3366ff',
@@ -67,6 +90,7 @@ const styles = StyleSheet.create({
       alignContent: 'center',
       marginLeft: '6%',
       marginTop: 25,
+      marginBottom: 25,
       maxWidth: '90%',
   },
   handleText: {

@@ -1,5 +1,6 @@
 package com.example.backend.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -9,8 +10,10 @@ import jakarta.persistence.Id;
 public class User {
   @Id
   @GeneratedValue(strategy=GenerationType.AUTO)
+  @Column(nullable = false)
   private Integer id;
 
+  private String profilePicture;
   private String firstName;
   private String lastName;
   private String email;
@@ -22,6 +25,7 @@ public class User {
   public User(String f, String l, String e, String p) {
     firstName = f; lastName = l;
     email = e; password = p;
+    profilePicture = "Default";
   }
 
   public Integer getId() {
@@ -70,6 +74,14 @@ public class User {
 
   public void setBiography(String biography) {
     this.biography = biography;
+  }
+
+  public String getProfilePicture() {
+    return profilePicture;
+  }
+
+  public void setProfilePicture(String profilePicture) {
+    this.profilePicture = profilePicture;
   }
 
   @Override

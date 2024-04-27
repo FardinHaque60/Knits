@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,21 +16,14 @@ import com.example.backend.repository.UserRepository;
 
 @RestController
 @RequestMapping("/api")
-public class LoginController {
-    
-    @Autowired
-    private UserRepository userRepository;
+public class LogoutController {
 
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Map<String, String> loginData) {
-        User user = userRepository.findByEmail(loginData.get("email"));
-
-        if (user != null && user.getPassword().equals(loginData.get("password"))) {
-            Session.setCurrentUser(user);
-            return ResponseEntity.ok("Login Successful");
+    @GetMapping("/logout")
+    public ResponseEntity<String> login() {
+        if (Session.getCurrentUser() == null) {
+            return ResponseEntity.badRequest().body("no user logged in");
         }
-        else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid Credentials");
-        }
+        Session.setCurrentUser(null);
+        return ResponseEntity.ok().body("user logged out");
     }
 }

@@ -5,10 +5,7 @@ const styles = StyleSheet.create({
     //header styles
     container: {
         flex: 1,
-    },
-    scrollView: {
-      paddingLeft: 7,
-      width: '98%',
+        width: '96%',
     },
     header: {
       marginTop: 10,
@@ -30,15 +27,21 @@ const styles = StyleSheet.create({
       borderRadius: 5,
       marginTop: 10,
     },
-    postButtonText: {
+    buttonText: {
       color: '#fff', // Button text color
       fontWeight: 'bold',
+    },
+    logoutButton: {
+      marginRight: 20,
+    },
+    logoutIcon: {
+      width: 25,
+      height: 25,
     },
 
     //recommendation bar styles
     hScrollViewContent: {
       flexDirection: 'row',
-      marginBottom: 15,
     },
     reccObj: {
       borderWidth: 0, 
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
     reccPic: {
       width: 50,
       height: 50,
+      borderRadius: 25,
     },
     reccText: {
       marginBottom: 5,
@@ -66,6 +70,9 @@ const styles = StyleSheet.create({
     },
     reccName: {
       flexDirection: 'row',
+    },
+    scrollView: {
+      marginBottom: '100%'
     },
 
     //post list styles
@@ -89,8 +96,11 @@ const styles = StyleSheet.create({
     },
     postDate: {
       fontStyle: 'italic',
+    },
+    timeFooter: {
       marginTop: 'auto',
-    }
+      flexDirection: 'row',
+    },  
   });
 
 export default styles;

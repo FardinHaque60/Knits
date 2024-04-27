@@ -20,7 +20,11 @@ function Login({ navigation }) {
     axios.post('http://localhost:8080/api/login', loginForm)
       .then(response => {
         console.log(response.data);
-        navigation.navigate('Feed');
+        navigation.replace('Feed');
+        setForm({
+          'email': '',
+          'password': '',
+        });
       })
       .catch(error => {
         console.log(error.response.data);

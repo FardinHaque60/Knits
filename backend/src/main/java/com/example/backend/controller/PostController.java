@@ -1,6 +1,8 @@
 package com.example.backend.controller;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -33,14 +35,19 @@ public class PostController {
     @PostMapping("/create-post")
     public ResponseEntity<String> createPost(@RequestBody String postData) {
         User author = Session.getCurrentUser();
-        LocalDateTime currentDateTime = LocalDateTime.now();
+        if (author == null) {
+            return ResponseEntity.badRequest().body("user not logged in");
+        }
+        LocalDate currentDate = LocalDate.now();    
+        LocalTime currentTime = LocalTime.now();
         
         // Format the date and time
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
-        String formattedDateTime = currentDateTime.format(formatter);
-        System.out.println(formattedDateTime);
+        DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        String formattedDate = currentDate.format(dateFormatter);
+        String formattedTime = currentTime.format(timeFormatter);
 
-        Post post = new Post(author, postData, formattedDateTime);
+        Post post = new Post(author, postData, formattedDate, formattedTime);
         try {
             postRepository.save(post);
         }
