@@ -13,6 +13,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-evenly',
       alignItems: 'center',
       paddingHorizontal: 10,
+      marginTop: '2%',
   },
   avatarContainer: {
     borderRadius: 50,
@@ -67,6 +68,7 @@ const styles = StyleSheet.create({
       alignContent: 'center',
       marginLeft: '6%',
       marginTop: 25,
+      marginBottom: 25,
       maxWidth: '90%',
   },
   handleText: {

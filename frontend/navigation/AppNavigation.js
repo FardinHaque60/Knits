@@ -11,6 +11,7 @@ import CreatePost from '../screens/CreatePost';
 import ViewProfile from "../screens/ViewProfile";
 import LogoutButton from '../components/LogoutButton';
 import Search from "../screens/Search";
+import EditProfile from "../screens/EditProfile";
 
 const Stack = createStackNavigator();
 
@@ -27,6 +28,7 @@ const AppNavigator = () => {
       <Stack.Screen name="Create Post" component={CreatePost} />
       <Stack.Screen name="View Profile" component={ViewProfile} />
       <Stack.Screen name="Search" component={Search}/>
+      <Stack.Screen name="Edit Profile" component={EditProfile} />
     </Stack.Navigator>
   );
 };

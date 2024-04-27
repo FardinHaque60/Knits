@@ -15,10 +15,28 @@ const styles = StyleSheet.create({
         marginBottom: 20
     },
     resultItem: {
+        flexDirection: 'row',
         paddingVertical: 10,
         borderBottomWidth: 1,
-        borderBottomColor: '#ccc'
-    }
+        borderBottomColor: '#ccc',
+        borderTopColor: '#ccc',
+        borderTopWidth: 1,
+    },
+    picContainer: {
+        borderRadius: 50,
+        borderWidth: 1, 
+        borderColor: 'black',
+        padding: 3,
+        marginRight: '5%',
+    },
+    profilePicture: {
+        width: 50,
+        height: 50,
+        borderRadius: 25,
+    },
+    searchText: {
+        fontSize: 16,
+    },
 });
 
 export default styles;

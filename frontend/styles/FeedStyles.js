@@ -95,8 +95,11 @@ const styles = StyleSheet.create({
     },
     postDate: {
       fontStyle: 'italic',
+    },
+    timeFooter: {
       marginTop: 'auto',
-    }
+      flexDirection: 'row',
+    },  
   });
 
 export default styles;

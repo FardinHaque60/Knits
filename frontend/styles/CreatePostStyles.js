@@ -18,6 +18,13 @@ const styles = StyleSheet.create({
         marginBottom: 20,
         fontSize: 20,
     },
+    postCreated: {
+        backgroundColor: 'green', 
+        color: 'white',
+        padding: 10,
+        marginBottom: 10,
+        borderRadius: 5,
+      }
 })
 
 export default styles;

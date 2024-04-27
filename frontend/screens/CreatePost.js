@@ -1,15 +1,15 @@
 import { useState } from 'react'
-import { View, TextInput, Button } from "react-native";
+import { View, TextInput, Button, Text } from "react-native";
 import styles from "../styles/CreatePostStyles"
 import axios from 'axios';
 
 function CreatePost({navigation}) {
-    const [postText, setPostText] = useState('');
+    const [postText, setPostText] = useState("");
     const [postCreate, setPostCreate] = useState(false);
 
     const handlePost = () => {
         console.log('Posted:', postText);
-        axios.post("http://localhost:8080/api/create-post", postText)
+        axios.post("http://localhost:8080/api/create-post", postText, {headers: {'Content-Type': 'text/plain'}})
             .then(response => {
                 console.log(response.data);
                 setPostCreate(true);
