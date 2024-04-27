@@ -33,9 +33,10 @@ public class SearchController {
         Map<String, String> userObj;
         for (User u: allUsers) {
             fullName = u.getFirstName() + " " + u.getLastName();
-            if (fullName.indexOf(searchQuery) != -1) {
+            if (u.getId() != Session.getCurrentUser().getId() && fullName.indexOf(searchQuery) != -1) {
                 userObj = new HashMap<>();
                 userObj.put("id", "" + u.getId());
+                userObj.put("profilePicture", u.getProfilePicture());
                 userObj.put("firstName", u.getFirstName());
                 userObj.put("lastName", u.getLastName());
                 usersResult.add(userObj);

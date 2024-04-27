@@ -2,6 +2,7 @@ package com.example.backend.entity;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,8 +14,9 @@ import jakarta.persistence.ManyToOne;
 public class Post {
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
+    @Column(nullable = false)
     private Integer id;
-    
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User author; //foreign key to user who created post
@@ -27,6 +29,14 @@ public class Post {
 
     public Post(User u, String b, String d, String t) {
         author = u; body = b; date = d; time = t;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
      public User getAuthor() {
