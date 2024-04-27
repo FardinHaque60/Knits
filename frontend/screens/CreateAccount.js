@@ -3,6 +3,7 @@ import { View, Text, TouchableOpacity, Image, TextInput, Button } from 'react-na
 import axios from 'axios';
 import styles from "../styles/EntranceStyles";
 import { LinearGradient } from 'expo-linear-gradient';
+import { CommonActions } from '@react-navigation/native';
 
 function CreateAccount({ navigation }) {
   const [accountForm, setForm] = useState({
@@ -24,7 +25,21 @@ function CreateAccount({ navigation }) {
     axios.post('http://localhost:8080/api/create-account', accountForm)
       .then(response => {
         console.log(response.data);
-        navigation.replace('Feed');
+        navigation.dispatch(
+          CommonActions.reset({
+            index: 0,
+            routes: [
+              { name: 'Feed' },
+            ],
+          })
+        );
+        setForm({
+          'firstName': '',
+          'lastName': '',
+          'email': '',
+          'password': '',
+          'confirmPassword': ''
+        });
       })
       .catch(error => {
         const msg = error.response.data;

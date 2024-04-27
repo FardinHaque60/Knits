@@ -1,6 +1,7 @@
 import styles from "../styles/FeedStyles";
 import { Image, TouchableOpacity } from 'react-native';
 import React from 'react';
+import { CommonActions } from "@react-navigation/native";
 import axios from 'axios';
 
 function LogoutButton({navigation}) {
@@ -9,7 +10,14 @@ function LogoutButton({navigation}) {
       axios.get("http://localhost:8080/api/logout")
         .then(response => {
           console.log(response.data);
-          navigation.navigate('Login');
+          navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [
+                { name: 'Login' },
+              ],
+            })
+          )
         })
         .catch(error => {
           console.log(error.response.data);
