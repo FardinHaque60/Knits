@@ -74,8 +74,14 @@ public class FollowingController {
             userObj = new HashMap<>();
             userObj.put("id", "" + u.getId());
             userObj.put("profilePicture", u.getProfilePicture());
-            userObj.put("firstName", u.getFirstName());
-            userObj.put("lastName", u.getLastName());
+            if (u.getId().equals(Session.getCurrentUser().getId())) {
+                userObj.put("firstName", "You");
+                userObj.put("lastName", "");
+            }
+            else {
+                userObj.put("firstName", u.getFirstName());
+                userObj.put("lastName", u.getLastName());
+            }
             usersResult.add(userObj);
         }
 
@@ -95,8 +101,14 @@ public class FollowingController {
             userObj = new HashMap<>();
             userObj.put("id", "" + u.getId());
             userObj.put("profilePicture", u.getProfilePicture());
-            userObj.put("firstName", u.getFirstName());
-            userObj.put("lastName", u.getLastName());
+            if (u.getId().equals(Session.getCurrentUser().getId())) {
+                userObj.put("firstName", "You");
+                userObj.put("lastName", "");
+            }
+            else {
+                userObj.put("firstName", u.getFirstName());
+                userObj.put("lastName", u.getLastName());
+            }
             usersResult.add(userObj);
         }
 
