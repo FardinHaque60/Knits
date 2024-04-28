@@ -21,11 +21,12 @@ const AppNavigator = () => {
     <Stack.Navigator initialRouteName='Login'>
       <Stack.Screen name="Login" component={Login} options={{ headerShown: false }}/>
       <Stack.Screen name="Feed" component={Feed} options={ ({ navigation }) => ({ 
+        animationEnabled: false,
         headerLeft: null,
         headerRight: () => (<LogoutButton navigation={navigation} />) })}/>
-      <Stack.Screen name="Hangouts" component={Hangouts} options={{ headerLeft: null}}/>
+      <Stack.Screen name="Hangouts" component={Hangouts} options={{ headerLeft: null, animationEnabled: false}}/>
       <Stack.Screen name="Create-Account" component={CreateAccount} options={{headerShown: false}}/>
-      <Stack.Screen name="Profile" component={Profile} options={{headerLeft: null}}/>
+      <Stack.Screen name="Profile" component={Profile} options={{headerLeft: null, animationEnabled: false}}/>
       <Stack.Screen name="Create Post" component={CreatePost} />
       <Stack.Screen name="View Profile" component={ViewProfile} />
       <Stack.Screen name="Search" component={Search}/>

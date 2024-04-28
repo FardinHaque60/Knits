@@ -6,7 +6,7 @@ const MessageBox = ({ name, message, avatarColor }) => {
     <View style={styles.container}>
       <View style={[styles.avatar, { backgroundColor: avatarColor }]} />
       <View style={styles.messageContainer}>
-        <Text style={styles.name}>{name}</Text>
+        <Text style={styles.name}>Host: {name}</Text>
         <Text style={styles.message}>{message}</Text>
       </View>
     </View>
@@ -31,8 +31,8 @@ const styles = StyleSheet.create({
   },
   messageContainer: {
     flex: 0,
-    maxHeight: 60, 
-    
+    maxHeight: 60,
+    minWidth: '95%'
   },
   name: {
     fontWeight: 'bold',
