@@ -1,6 +1,7 @@
 import React from 'react';
 import {  View, Text, TouchableOpacity } from 'react-native';
 import styles from "../styles/NavigationStyles";
+import { CommonActions } from '@react-navigation/native';
 
 function Navigation({ navigation, children }) {
 
@@ -10,19 +11,40 @@ function Navigation({ navigation, children }) {
       <View style={styles.navigationBar}>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.replace('Feed')}
+          onPress={() => navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [
+                { name: 'Feed' },
+              ],
+            })
+          )}
         >
           <Text style={styles.navIcon}> 🏠 </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.replace('Hangouts')}
+          onPress={() => navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [
+                { name: 'Hangouts' },
+              ],
+            })
+          )}
         >
           <Text style={styles.navIcon}> 🚗 </Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.navButton}
-          onPress={() => navigation.replace('Profile')}
+          onPress={() => navigation.dispatch(
+            CommonActions.reset({
+              index: 0,
+              routes: [
+                { name: 'Profile' },
+              ],
+            })
+          )}
         >
           <Text style={styles.navIcon}> 👤 </Text>
         </TouchableOpacity>
