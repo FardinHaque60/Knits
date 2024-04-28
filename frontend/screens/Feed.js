@@ -11,6 +11,7 @@ function Feed({navigation}) {
   const [posts, setPosts] = useState([])
   const [recommendations, setRecommendations] = useState([]);
   const [userInfo, setUserInfo] = useState({});
+  const [reccs, setReccs] = useState(false);
 
   useEffect(() => {
     axios.get('http://localhost:8080/api/get-user-info', {params: {id: -1}})
@@ -25,6 +26,12 @@ function Feed({navigation}) {
       .then(response => {
         console.log(response.data);
         setRecommendations(response.data);
+        if (response.data.length !== 0) {
+          setReccs(true);
+        }
+        else {
+          setReccs(false);
+        }
       })
       .catch(error => {
         console.log(error.response.data);
@@ -61,7 +68,7 @@ function Feed({navigation}) {
             <Text style={styles.buttonText}>+ Post</Text>
           </TouchableOpacity>
         </View>
-        <Text style={styles.reccText}> People you may know: </Text>
+        {reccs ? <Text style={styles.reccText}> People you may know: </Text> : null}
           <FlatList
             data={recommendations}
             keyExtractor={(item) => item.id}
