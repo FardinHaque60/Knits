@@ -68,11 +68,6 @@ const Hangouts = ({ navigation }) => {
         )
       }
   }
-  const messages = [
-    { name: 'Nas Reed', message: 'Join my hangout',  avatarColor: '#76D7C4' },
-    { name: 'Lebron James', message: 'I am going to the beach', avatarColor: '#A56CC1' },
-    // Add more messages as needed
-  ];
 
   return (
     <Navigation navigation={navigation}>
