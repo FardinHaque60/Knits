@@ -3,7 +3,7 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 50,
+        paddingTop: '5%',
         paddingHorizontal: 20
     },
     searchInput: {
@@ -13,6 +13,26 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 10,
         marginBottom: 20
+    },
+    joinButton: {
+        backgroundColor: '#007AFF',
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        borderRadius: 20,
+        marginBottom: 10,
+        alignItems: 'center',
+    },
+    joinedButton: {
+        backgroundColor: 'gray',
+        paddingHorizontal: 12,
+        paddingVertical: 8,
+        borderRadius: 20,
+        marginBottom: 10,
+        alignItems: 'center',
+    },
+    buttonText: {
+        color: '#FFFFFF',
+        fontSize: 16,
     },
     resultItem: {
         flexDirection: 'row',
