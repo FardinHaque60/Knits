@@ -1,3 +1,4 @@
+
 import React, {useEffect, useState} from 'react';
 import { View, Text, ScrollView, TouchableOpacity, FlatList} from 'react-native';
 import Navigation from '../components/Navigation';
@@ -5,6 +6,7 @@ import JoinMessageBox from '../components/JoinMessageBox';
 import HostMessageBox from '../components/HostMessageBox';
 import styles from "../styles/HangoutStyles";
 import axios from 'axios';
+
 
 const Hangouts = ({ navigation }) => {
 
@@ -66,6 +68,11 @@ const Hangouts = ({ navigation }) => {
         )
       }
   }
+  const messages = [
+    { name: 'Nas Reed', message: 'Join my hangout',  avatarColor: '#76D7C4' },
+    { name: 'Lebron James', message: 'I am going to the beach', avatarColor: '#A56CC1' },
+    // Add more messages as needed
+  ];
 
   return (
     <Navigation navigation={navigation}>
