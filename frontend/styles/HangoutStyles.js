@@ -5,13 +5,12 @@ const styles = StyleSheet.create({
       flex: 1,
       padding: 16,
       width: '100%',
-      
+    },
     headerContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         marginBottom: 16,
-
     },
     title: {
       fontSize: 20,
