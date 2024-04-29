@@ -25,6 +25,7 @@ public class User {
   private String password;
   private String biography;
 
+  /* 
   @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
   private List<Following> user;
 
@@ -41,7 +42,7 @@ public class User {
   private List<CarPeople> carPeople;
 
   @OneToMany(mappedBy = "driver", cascade = CascadeType.REMOVE, orphanRemoval = true)
-  private List<Car> drivers;
+  private List<Car> drivers; */
 
   public User() {}
 
