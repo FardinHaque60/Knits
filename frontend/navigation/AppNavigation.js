@@ -13,6 +13,11 @@ import LogoutButton from '../components/LogoutButton';
 import Search from "../screens/Search";
 import EditProfile from "../screens/EditProfile";
 import People from "../screens/People";
+import CreateHangout from "../screens/CreateHangout";
+import ViewHangout from "../screens/ViewHangout";
+import CreateCar from '../screens/CreateCar';
+import ViewCar from "../screens/ViewCar";
+//import YourHangout from "../screens/YourHangout";
 
 const Stack = createStackNavigator();
 
@@ -32,6 +37,11 @@ const AppNavigator = () => {
       <Stack.Screen name="Search" component={Search}/>
       <Stack.Screen name="Edit Profile" component={EditProfile} />
       <Stack.Screen name="People" component={People} />
+      <Stack.Screen name="Create Hangout" component={CreateHangout} />
+      <Stack.Screen name="View Hangout" component={ViewHangout} /> 
+      <Stack.Screen name="Create Car" component={CreateCar}/>
+      <Stack.Screen name="View Car" component={ViewCar} />
+      {/* <Stack.Screen name="Your Hangout" component={YourHangout} /> */}
     </Stack.Navigator>
   );
 };

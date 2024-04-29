@@ -1,10 +1,15 @@
 package com.example.backend.entity;
 
+import java.util.List;
+
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
@@ -19,6 +24,24 @@ public class User {
   private String email;
   private String password;
   private String biography;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Following> user;
+
+  @OneToMany(mappedBy = "following", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Following> followers;
+
+  @OneToMany(mappedBy = "host", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Hangout> hosts;
+
+  @OneToMany(mappedBy = "author", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Post> authors;
+
+  @OneToMany(mappedBy = "user", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<CarPeople> carPeople;
+
+  @OneToMany(mappedBy = "driver", cascade = CascadeType.REMOVE, orphanRemoval = true)
+  private List<Car> drivers;
 
   public User() {}
 

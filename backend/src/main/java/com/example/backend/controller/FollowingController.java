@@ -17,8 +17,6 @@ import com.example.backend.repository.FollowingRepository;
 import com.example.backend.repository.UserRepository;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController

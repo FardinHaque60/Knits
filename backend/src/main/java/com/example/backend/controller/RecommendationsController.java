@@ -18,8 +18,6 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -40,12 +38,12 @@ public class RecommendationsController {
     public ResponseEntity<List<Map<String, String>>> getReccommendations() {
         Graph graphObj = new Graph();
         Set<Node> g = graphObj.makeGraph(followingRepository.findAll(), userRepository.findAll());
+        System.out.println("---------------------All Users---------------------");
         for (Node n: g) {
             System.out.println(n.getUser().getFirstName());
         }
         Integer currUserId = Session.getCurrentUser().getId();
         User currUser = userRepository.findById(currUserId).orElse(null);
-        System.out.println(currUserId);
         Node startNode = Graph.findNode(g, currUser);
         Queue<Node> BFS = new LinkedList<>();
         BFS.add(startNode);
@@ -69,7 +67,7 @@ public class RecommendationsController {
         Map<String, String> reccObj; User u;
         System.out.println("---------------------recommendations---------------------");
         for (Node n: recommend) {
-            System.out.print(n.getUser().getFirstName() + " " + n.getUser().getLastName());
+            System.out.println(n.getUser().getFirstName() + " " + n.getUser().getLastName());
             reccObj = new HashMap<>();
             u = n.getUser();
             reccObj.put("id", u.getId() + "");
