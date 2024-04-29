@@ -1,17 +1,11 @@
 package com.example.backend.controller;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.backend.entity.Post;
 import com.example.backend.entity.User;
 import com.example.backend.repository.PostRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -43,7 +35,7 @@ public class PostController {
         
         // Format the date and time
         DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         String formattedDate = currentDate.format(dateFormatter);
         String formattedTime = currentTime.format(timeFormatter);
 
