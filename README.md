@@ -33,17 +33,13 @@ The application is recommended to be ran on MacOS as it has only been tested for
 
 ## Views
 ### Login + Create Account 
-<img src="views/login.png" alt="drawing" width="200"/> 
-<img src="views/create_account.png" width="200" />
+<img src="views/login.png" alt="drawing" width="200"/> <img src="views/create_account.png" width="200" />
 
 ### Feed
 <img src="views/feed.png" alt="drawing" width="200"/>
 
 ### Hangouts
-<img src="views/hangouts.png" alt="drawing" width="200"/> 
-<img src="views/view_hangout.png" width="200" /> 
-<img src="views/join_car.png" alt="drawing" width="200"/> 
+<img src="views/hangouts.png" alt="drawing" width="200"/> <img src="views/view_hangout.png" width="200" /> <img src="views/join_car.png" alt="drawing" width="200"/> 
 
 ### Profile
-<img src="views/view_profile.png" alt="drawing" width="200" /> 
-<img src="views/search.png" width="200" />
+<img src="views/view_profile.png" alt="drawing" width="200" /> <img src="views/search.png" width="200" />
