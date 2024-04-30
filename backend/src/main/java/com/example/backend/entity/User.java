@@ -1,15 +1,10 @@
 package com.example.backend.entity;
 
-import java.util.List;
-
-
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class User {
