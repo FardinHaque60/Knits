@@ -3,6 +3,8 @@ Group #1: Fardin Haque, Norlando Gamez-Torres, Daniel Ung. Social media mobile a
 * Hangouts: Create or join hangouts that your friends make. Add a description, date, time and create or join rides 
 * Following: Follow other users and check out their profile, posts, and hangouts.
 * Feed: View posts for the people you are following and see reccomended people based on who you are following
+  
+[Report](https://docs.google.com/document/d/1eIhGSUCmepIu24IrWza36HGMPlMtQqN2vQ54_IWFuCw/edit?usp=sharing)
 
 ## Prerequistes
 The application is recommended to be ran on MacOS as it has only been tested for iOS.
