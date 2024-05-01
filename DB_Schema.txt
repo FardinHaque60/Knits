@@ -1,0 +1,59 @@
+// Copy following code into https://dbdiagram.io to view schema
+
+Table User {
+  id integer [primary key]
+  email varchar
+  password varchar
+  firstName varchar
+  lastName varchar
+  bio varchar
+}
+
+Table Following {
+  id integer [primary key]
+  user User
+  follows varchar
+  date varchar
+}
+
+Table Car {
+  id integer [primary key]
+  driver User
+  hangout Hangout
+  departDate varchar
+  departTime varchar
+  capacity integer
+}
+
+Table CarPeople {
+  id integer [primary key]
+  user User
+  car Car
+  date varchar
+  time varchar
+}
+
+Table Hangout {
+  id integer [primary key]
+  host User
+  description varchar
+  date varchar
+  time varchar
+}
+
+Table Post {
+  id integer [primary key]
+  author User
+  body varchar
+  date varchar
+  time varchar
+}
+
+Ref: User.id < Following.user
+Ref: User.id < Following.follows
+Ref: User.id < Hangout.host
+Ref: User.id < Post.id
+Ref: User.id < Car.driver
+Ref: User.id < CarPeople.user
+Ref: Hangout.id < Car.hangout
+Ref: Car.id < CarPeople.car

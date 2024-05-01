@@ -1,18 +1,25 @@
 # Knits
 Group #1: Fardin Haque, Norlando Gamez-Torres, Daniel Ung. Social media mobile app with an emphasis on efficiently organizing hangouts with friends. Main features include:
-* Hangouts: Create or Join hangouts that your friends make. Add a description, date, time and create or join rides 
+* Hangouts: Create or join hangouts that your friends make. Add a description, date, time and create or join rides 
 * Following: Follow other users and check out their profile, posts, and hangouts.
-* Feed: View posts for the people you are following and see reccomend people based on who you are following
+* Feed: View posts for the people you are following and see reccomended people based on who you are following
 
 ## Prerequistes
 The application is recommended to be ran on MacOS as it has only been tested for iOS.
 * [React Native](https://reactnative.dev/docs/environment-setup?guide=native) used for running the frontend.
     * the above link includes instructions for downloading the the iOS simulator as well, please reference those steps until "Installing an iOS Simulator in Xcode" to set-up the required dependencies if not met already.
-* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) used for the iOS simulator. Additional instructions to set it up can be referenced above.
+* [Xcode](https://apps.apple.com/us/app/xcode/id497799835?mt=12) used for the iOS simulator, ensure CLI tools are installed. Additional instructions to set it up can be referenced above.
 * [Maven](https://maven.apache.org/download.cgi) used for running the Spring Boot backend.
 * [MySQL](https://dev.mysql.com/downloads/mysql/) used for the database.
 
 ## Set Up
+### Cloning the repository
+In your preferred directory run:
+* Using SSH: `git clone git@github.com:FardinHaque60/Knits.git && cd Knits`
+* Using HTTPS: `git clone https://github.com/FardinHaque60/Knits.git && cd Knits`
+
+You are now in the Knits root project directory
+
 ### Setting up the database
 * Open a terminal and enter mysql: `mysql -u root -p`
 * Create the Knits DB: `create database Knits_DB;`
@@ -30,6 +37,9 @@ The application is recommended to be ran on MacOS as it has only been tested for
 * install all needed node packages: `npm install`
 * start the frontend: `npx expo start`
     * it will give an option to select which device to run it on, we recommend typing `i` to run on iOS and select iPhone 15 Pro Max in simulator
+
+## Database Schema
+<img src="views/db_schema.png" alt="drawing" width="650"/>
 
 ## Views
 ### Login + Create Account 
